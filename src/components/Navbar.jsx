@@ -4,6 +4,13 @@ import {navItems} from '../constants'
 import {Menu, X} from 'lucide-react'
 import { useState } from 'react'
 
+const SignButtons = () => (
+    <div className="flex space-x-6">
+      <a href="#" className="py-2 px-3 border rounded-md">Sign In</a>
+      <a href="#" className="py-2 px-3 rounded-md bg-gradient-to-r from-orange-500 to-orange-800">Create An Account</a>
+    </div>
+  );
+
 const Navbar = () => {
     const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
@@ -11,6 +18,7 @@ const Navbar = () => {
     {
         setMobileDrawerOpen(!mobileDrawerOpen);
     }
+      
   return (
     <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg border-b border-neutral-700/80">
         <div className="container px-4 mx-auto relative text-sm">
@@ -33,14 +41,15 @@ const Navbar = () => {
 
                 {/* side ke sign in buttons */}
                 <div className="hidden lg:flex justify-center space-x-12 items-center">
-                    <a href="#" className='py-2 px-3 border rounded-md'>Sign In</a>
-                    <a href="#" className='bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md'>Create An Account</a>
+                    {/* <a href="#" className='py-2 px-3 border rounded-md'>Sign In</a>
+                    <a href="#" className='bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md'>Create An Account</a> */}
+                    <SignButtons/>
                 </div>
-
+                
                 {/* ab mobile wala toggle ka scene  */}
-                <div className="lg:hidden md:flex flex-col justify-end">
-                    <button onClick={toggleMobileDrawer}>{mobileDrawerOpen ? <X/> : <Menu/>}</button>
-                </div>
+           
+                    <button className="lg:hidden md:flex flex-col justify-end" onClick={toggleMobileDrawer}>{mobileDrawerOpen ? <X/> : <Menu/>}</button>
+
             </div>
 
             {/* mobile size mein features dikhana */}
@@ -55,10 +64,11 @@ const Navbar = () => {
                         ))}
                     </ul>
 
-                    <div className="flex space-x-6">
+                    {/* <div className="flex space-x-6">
                         <a href="#" className="py-2 px-3 border rounded-md">Sign In</a>
                         <a href="#" className='py-2 px-3 rounded-md bg-gradient-to-r from-orange-500 to-orange-800'>Create An Account</a>
-                    </div>
+                    </div> */}
+                    <SignButtons/>
                 </div>
             )}
         </div>
